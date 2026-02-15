@@ -1,0 +1,210 @@
+
+:root {
+  --bg: #f8f5f0;
+  --white: #ffffff;
+  --accent: #e46f4f;
+  --text-dark: #333;
+  --text-muted: #8d8d8d;
+
+  --green-bg: #e9f8ef;
+  --green-text: #1a8f55;
+
+  --blue-bg: #e7f1ff;
+  --blue-text: #2e6ddf;
+
+  --yellow-bg: #fff4da;
+  --yellow-text: #c07d00;
+
+  --red-bg: #ffe7e7;
+  --red-text: #d03c3c;
+}
+
+
+* {
+  box-sizing: border-box;
+  
+}
+
+
+body {
+  background-color: #f9f7f3;
+  color: #333;
+}
+
+
+
+
+
+
+.logo {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.nav-right a {
+  margin-left: 25px;
+  text-decoration: none;
+  color: var(--text-dark);
+  font-size: 15px;
+}
+
+.nav-right a.active {
+  color: var(--white);
+  font-weight: 600;
+  background:#e46f4f;
+  padding:6px 10px;
+  border-radius:18px;
+}
+
+.container {
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 0 20px;
+  text-align: center;
+}
+
+.big-btn {
+  background: var(--accent);
+  color: #fff;
+  padding: 10px 25px;
+  border-radius: 22px;
+  border: none;
+  cursor: pointer;
+  font-size: 15px;
+}
+
+.hero h1 {
+  margin: 18px 0 5px;
+  font-size: 22px;
+}
+
+.sub {
+  margin: 0 0 14px;
+  color: var(--text-muted);
+}
+
+.toggle {
+  margin-top: 20px;
+  background: #fff;
+  display: inline-flex;
+  padding: 5px;
+  border-radius: 20px;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+.tab {
+  padding: 9px 25px;
+  border: none;
+  background: transparent;
+  cursor: pointer;
+  border-radius: 18px;
+  font-size: 14px;
+}
+
+.tab.active {
+  background: #eee7e1;
+}
+
+.orders {
+  margin-top: 35px;
+  text-align: left;
+}
+
+.orders h2 {
+  margin-bottom: 5px;
+  font-size: 20px;
+}
+
+.hint {
+  color: var(--text-muted);
+  margin-top: 0;
+  margin-bottom: 15px;
+}
+
+.filters {
+  display: flex;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.pill {
+  padding: 8px 14px;
+  background: #fff;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.pill.active {
+  background: var(--accent);
+  color: #fff;
+}
+
+.table-wrap {
+  background: #fff;
+  border-radius: 12px;
+  padding: 10px 0;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+  overflow-x: auto;
+}
+
+.orders-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 15px;
+}
+
+.orders-table th {
+  padding: 15px 20px;
+  color: #666;
+  text-align: left;
+  font-size: 14px;
+}
+
+.orders-table td {
+  padding: 16px 20px;
+  border-top: 1px solid #f1efea;
+}
+
+.status {
+  padding: 7px 12px;
+  font-size: 13px;
+  border-radius: 14px;
+  display: inline-block;
+}
+
+.status.completed {
+  background: var(--green-bg);
+  color: var(--green-text);
+}
+
+.status.approved {
+  background: var(--blue-bg);
+  color: var(--blue-text);
+}
+
+.status.pending {
+  background: var(--yellow-bg);
+  color: var(--yellow-text);
+}
+
+.status.rejected {
+  background: var(--red-bg);
+  color: var(--red-text);
+}
+
+.details {
+  color: var(--text-muted);
+  font-size: 13px;
+}
+
+@media (max-width: 700px) {
+  .nav-right {
+    display: none;
+  }
+  .container {
+    padding: 0 12px;
+  }
+}

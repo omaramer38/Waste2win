@@ -1,0 +1,276 @@
+
+* {
+  box-sizing: border-box;
+  
+}
+
+
+body {
+  background-color: #f9f7f3;
+  color: #333;
+}
+.container {
+  max-width: 1200px;
+  margin: 3rem auto; 
+  padding: 1.5rem;
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: 3rem;
+}
+
+.card {
+  background: #fff;
+  border-radius: 16px;
+  padding: 2rem; 
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  margin-bottom: 2rem; 
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+}
+
+.profile-header {
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+}
+
+.avatar {
+  width: 70px;
+  height: 70px;
+  background: #e57b51;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.level {
+  background: #ccebd7;
+  color: #3a7a50;
+  padding: 0.25rem 0.7rem;
+  font-size: 0.8rem;
+  border-radius: 10px;
+  margin-right: 6px;
+}
+
+.progress-bar {
+  width: 100%;
+  background: #f0e9e6;
+  border-radius: 10px;
+  height: 10px;
+  margin-top: 1.5rem;
+  overflow: hidden;
+}
+
+.progress {
+  height: 10px;
+  width: 0%;
+  background: #e57b51;
+  border-radius: 10px;
+  transition: width 1s ease;
+}
+
+.progress-text {
+  text-align: left;
+  font-size: 0.9rem;
+  color: #666;
+  margin-top: 0.5rem;
+}
+
+.stats-card h4,
+.your-stats h4,
+.achieve-card h4,
+.history-card h4 {
+  margin-bottom: 1rem;
+  color: #444;
+}
+
+.points-display {
+  font-size: 2.4rem;
+  color: #e57b51;
+  font-weight: bold;
+}
+
+.small-text {
+  color: #888;
+  font-size: 0.95rem;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.your-stats li,
+.achieve-card li,
+.history-card li {
+  margin-bottom: 1rem;
+  font-size: 1rem;
+  color: #555;
+  line-height: 1.6;
+}
+
+.your-stats li span {
+  color: #333;
+  font-weight: 500;
+}
+
+.history-card ul li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.8rem 0;
+  border-bottom: 1px solid #eee;
+}
+
+.history-card ul li:last-child {
+  border-bottom: none;
+}
+
+.history-card ul li span {
+  color: #e57b51;
+  font-weight: 600;
+}
+
+.logout {
+  display: inline-block;
+  background-color: #e57b51;
+  color: #fff;
+  border: none;
+  padding: 0.8rem 1.6rem;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 1.5rem;
+  width: 100%;
+  text-align: center;
+}
+
+.logout:hover {
+  background-color: #d86f45;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 10px rgba(229, 123, 81, 0.3);
+}
+
+.logout:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+.mode {
+  display: inline-block;
+  background-color: #524540;
+  color: #fff;
+  border: none;
+  padding: 0.8rem 1.6rem;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  margin-top: 1.5rem;
+  width: 100%;
+  text-align: center;
+}
+.mode:active {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+@media (max-width: 900px) {
+  .container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .profile-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .progress-text {
+    text-align: right;
+  }
+}
+/* 🌙 Dark Mode Toggle Switch */
+input {
+  width: 0;
+  height: 0;
+  visibility: hidden;
+}
+
+label {
+  width: 70px;
+  height: 35px;
+  position: relative;
+  display: block;
+  background: #ebebeb;
+  border-radius: 200px;
+  box-shadow: inset 0 5px 15px rgba(0,0,0,0.3), inset 0 -5px 15px rgba(255,255,255,0.4);
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+label:after {
+  content: "";
+  width: 28px;
+  height: 28px;
+  position: absolute;
+  top: 3.5px;
+  left: 4px;
+  background: linear-gradient(180deg, #ffcc89, #d8860b);
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+  transition: all 0.3s ease;
+}
+
+label i {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 14px;
+  transition: color 0.3s ease, opacity 0.3s ease;
+}
+
+label .sun {
+  left: 10px;
+  color: #f5d76e;
+}
+
+label .moon {
+  right: 10px;
+  color: #7e7e7e;
+}
+
+input:checked + label {
+  background: #333;
+}
+
+input:checked + label:after {
+  left: 65px;
+  transform: translateX(-100%);
+  background: linear-gradient(180deg, #777, #3a3a3a);
+}
+
+input:checked + label .sun {
+  color: #7e7e7e;
+  opacity: 0.5;
+}
+
+input:checked + label .moon {
+  color: #fff;
+  opacity: 1;
+}
+
+label:active:after {
+  width: 32px;
+}

@@ -1,0 +1,130 @@
+
+:root {
+  --bg-body: #f9f8f5;
+  --bg-card: #ffffff;
+  --bg-input: #f5f2ef;
+  --bg-delivery: #e8f5f2;
+
+  --text-main: #3a3a3a;
+  --text-secondary: #555;
+  --text-light: #aaa;
+
+  --border-color: #ddd;
+
+  --btn-confirm: #f0734e;
+  --btn-back: #ece6dd;
+
+  --shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+
+body {
+  background-color: #f9f7f3;
+  color: #333;
+}
+
+
+
+.container {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  margin-top: 50px;
+  padding: 20px;
+  
+}
+.page {
+  max-width: 900px;   
+  margin: 0 auto;    
+  padding: 0 20px;    
+}
+
+
+.form-container, .summary-container {
+  background: var(--bg-card);
+  border-radius: 12px;
+  padding: 30px;
+  flex: 1;
+  min-width: 300px;
+  box-shadow: 0 4px 12px var(--shadow);
+}
+
+.form-container h2, .summary-container h3 {
+  margin-bottom: 20px;
+  font-weight: 600;
+  color: var(--text-main);
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  background: var(--bg-input);
+}
+
+.optional {
+  font-weight: 400;
+  font-size: 12px;
+  color: var(--text-light);
+}
+
+.btn {
+  padding: 12px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  margin-top: 10px;
+}
+
+.btn-confirm {
+  background-color: var(--btn-confirm);
+  color: white;
+}
+
+.btn-back {
+  background-color: var(--btn-back);
+  margin-left: 10px;
+}
+
+.summary-container p {
+  margin-bottom: 10px;
+  color: var(--text-secondary);
+}
+
+.summary-container .total {
+  font-weight: 600;
+  font-size: 18px;
+  margin-top: 15px;
+}
+
+.delivery-info {
+  background-color: var(--bg-delivery);
+  padding: 10px;
+  border-radius: 8px;
+  margin-top: 15px;
+  font-size: 14px;
+  color: var(--text-main);
+}
+
+
+
+

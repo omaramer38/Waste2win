@@ -1,0 +1,130 @@
+:root {
+  --bg: #f7f8fa;
+  --text: #222;
+  --card: #ffffff70;
+  --btn: #e46b4c;
+  --btn-hover: #c93e3e;
+}
+
+body.dark {
+  --bg: #1e1e1e;
+  --text: #eee;
+  --card: #2b2b2b;
+  --btn: #ff8056;
+  --btn-hover: #ff6430;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  transition: background 0.3s ease, color 0.3s ease;
+}
+
+.container {
+  background: var(--card);
+  padding: 30px;
+  border-radius: 20px;
+  width: 360px;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+  text-align: center;
+}
+
+.tabs {
+  display: flex;
+  background: #eee;
+  border-radius: 30px;
+  overflow: hidden;
+  margin: 20px 0;
+}
+
+.tab {
+  flex: 1;
+  border: none;
+  background: transparent;
+  padding: 10px;
+  cursor: pointer;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.tab.active {
+  background: var(--btn);
+  color: #fff;
+}
+
+.form {
+  display: none;
+}
+
+.form.active {
+  display: block;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin-top: 8px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  outline: none;
+}
+#city{
+  width: 100%;
+  padding: 10px;
+  margin-top: 8px;
+  border-radius: 8px; 
+  border: 1px solid #ccc;
+  outline: none;
+}
+
+.btn {
+  background: var(--btn);
+  color: white;
+  border: none;
+  padding: 10px;
+  width: 106%;
+  border-radius: 8px;
+  margin-top: 15px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background: var(--btn-hover);
+}
+
+.mode-toggle {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+}
+
+#modeBtn {
+  background: var(--btn);
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+
+label {
+  display: block;        
+  text-align: left;      
+  margin-left: 10px;    
+  margin-bottom: 5px; 
+  font-weight: 600;   
+}
+label {
+  display: block;
+  margin-top: 10px; 
+}
+
+
+
+

@@ -1,0 +1,47 @@
+<?php
+session_start();
+require("../../conn.php");
+include("../../fun/alert.php");
+if(!isset($_SESSION["custid"])){
+    header("location:../../index.php");
+    exit;
+}else{
+    $custid = $_SESSION["custid"];
+    $cust_name = $_SESSION["cust_name"];
+    $user_points = $_SESSION["user_points"];
+
+    if(isset($_POST["proid"]) && isset($_POST["points_needed"])){
+        $proid = $_POST["proid"];
+        $points_needed = $_POST["points_needed"];
+
+        if($user_points >= $points_needed){
+           
+            $_SESSION["user_points"] = $user_points - $points_needed;
+
+            $_SESSION["cart"][] = [
+                "proid" => $proid,
+                "points_needed" => $points_needed
+            ];
+
+            $_SESSION["alert"] = [
+                    "type" => "success" ,
+                    "msg" => "تم إضافة المنتج إلى سلة المشتريات بنجاح."
+                ];
+                
+        }else{
+           $_SESSION["alert"] = [
+                    "type" => "danger" ,
+                    "msg" => "ليس لديك نقاط كافية لاستبدال هذا المنتج."
+                ];
+                
+        }
+
+        header("location:../shop.php");
+        
+
+    }
+
+}
+
+
+?>
