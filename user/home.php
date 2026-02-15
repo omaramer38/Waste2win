@@ -63,7 +63,7 @@ include("../fun/alert.php"); // تضمين ملف التنبيهات
     direction:rtl;}
 .chat-header {
     padding:12px;
-    background:linear-gradient(90deg, #f07d5d, #f07d5d);
+    background:linear-gradient(90deg, #9fb878, #9fb878);
     color:white;
     display:flex;
     justify-content:space-between;
@@ -122,7 +122,7 @@ include("../fun/alert.php"); // تضمين ملف التنبيهات
  
 <!-- شريط التنقل -->
 <?php include("inc/navbar.php"); ?>
-  
+<div>
 <section class="hero">
     <div class="hero-text">
       <p class="tag">منصة إعادة التدوير المستدامة</p>
@@ -134,15 +134,14 @@ include("../fun/alert.php"); // تضمين ملف التنبيهات
         <a href="shop.php"><button id="browseShopBtn" class="secondary">تصفح المتجر</button></a>
       </div>
 
-      <div class="stats">
-        <div><strong>10K+</strong><p>مستخدم نشط</p></div>
-        <div><strong>50K+</strong><p>عنصر مُعاد تدويره</p></div>
-        <div><strong>2M+</strong><p>نقطة مكتسبة</p></div>
-      </div>
     </div>
 
-    <div class="hero-image">
-      <img src="../imgs/recycling-2.png" alt="كوب إعادة التدوير">
+    <div class="bottle-container">
+        <img src="../imgs/bottle.png" class="bottle b1">
+        <img src="../imgs/bottle.png" class="bottle b2">
+        <img src="../imgs/bottle.png" class="bottle b3">
+        <img src="../imgs/bottle.png" class="bottle b4">
+
     </div>
 </section>
 
@@ -157,57 +156,8 @@ include("../fun/alert.php"); // تضمين ملف التنبيهات
 <?php } ?>
 </section>
 
-<section class="why">
-    <h2>لماذا واست 2 ون؟</h2>
-    <p>انضم إلى مجتمعنا وساهم في حماية البيئة بينما تكسب المكافآت.</p>
-    <div class="why-cards">
-      <div class="why-card"><h3>إعادة تدوير سهلة</h3><p>عملية بسيطة لإعادة تدوير نفاياتك المنزلية وكسب النقاط.</p></div>
-      <div class="why-card"><h3>اكسب النقاط</h3><p>احصل على مكافآت مقابل كل عنصر تعيد تدويره.</p></div>
-      <div class="why-card"><h3>صديقة للبيئة</h3><p>ساهم في بيئة أنظف من خلال ممارسات مستدامة.</p></div>
-      <div class="why-card"><h3>اصنع تأثيرًا</h3><p>انضم إلى الآلاف الذين يحدثون فرقًا إيجابيًا.</p></div>
-    </div>
-</section>
 
-<section class="cta">
-    <h2>هل أنت مستعد لإحداث فرق؟</h2>
-    <p>ابدأ رحلتك في إعادة التدوير اليوم واكسب نقاطًا يمكنك استبدالها.</p>
-    <a href="Recycle.php"><button id="ctaRecyclingBtn">ابدأ الآن</button></a>
-</section>
 
-<footer>
-    <div class="footer-grid">
-      <div>
-        <h3>حول واست 2 ون</h3>
-        <p>نسهّل عملية إعادة التدوير ونجعلها مجزية للجميع.</p>
-        <p>انضم إلى الآلاف ممن يصنعون فرقًا إيجابيًا.</p>
-      </div>
-
-      <div>
-        <h3>روابط سريعة</h3>
-        <ul>
-          <li><a href="#">كيف تعمل المنصة</a></li>
-          <li><a href="#">الأسئلة الشائعة</a></li>
-          <li><a href="#">اتصل بنا</a></li>
-          <li><a href="#">الشروط والخصوصية</a></li>
-        </ul>
-      </div>
-
-      <div>
-        <h3>تواصل معنا</h3>
-        <p>البريد: info@waste2win.com</p>
-        <p>الهاتف: ‎+20 123 456 7899</p>
-      </div>
-    </div>
-
-    <div class="socials">
-      <p>تابعنا:</p>
-      <div>
-        <a href="#"></a><a href="#"></a><a href="#"></a><a href="#"></a>
-      </div>
-    </div>
-
-    <p class="copy">© 2025  واست 2 ون. جميع الحقوق محفوظة.</p>
-</footer>
 
 <script src="../fun/resetalert.js"></script>
 
@@ -216,7 +166,7 @@ include("../fun/alert.php"); // تضمين ملف التنبيهات
 <!-- ======================================================================= -->
 
 <div class="chat-toggle">
-  <button id="openChatBtn">💬 دردشة المساعدة</button>
+  <button id="openChatBtn" style="background-color:#9fb878">💬 دردشة المساعدة</button>
 </div>
 
 <div class="chat-window" id="chatWindow">
@@ -228,14 +178,14 @@ include("../fun/alert.php"); // تضمين ملف التنبيهات
 
   <form class="chat-input" id="chatForm">
     <input type="text" id="question" placeholder="اكتب سؤالك">
-    <button type="submit">إرسال</button>
+    <button type="submit" style="background-color:#9fb878">إرسال</button>
   </form>
 
   
 <div id="answer"></div>
 
 </div>
-
+</div> 
 <script>
 (() => {
 

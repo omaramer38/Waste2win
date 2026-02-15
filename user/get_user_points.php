@@ -1,13 +1,7 @@
 <?php
-session_start();
-include("../conn.php");
+include("inc/check_role.php"); // تأكد من أن المستخدم مسجل الدخول وله الدور المناسب
+include("../fun/alert.php"); // تضمين ملف التنبيهات
 
-if(!isset($_SESSION["custid"])){
-    header("location:../../index.php");
-    exit;
-}else{
-    $custid = $_SESSION["custid"];
-    $cust_name = $_SESSION["cust_name"];
 
 
     $selec_points = $pdo->prepare("SELECT points FROM customers WHERE custid = ?");
@@ -18,15 +12,6 @@ if(!isset($_SESSION["custid"])){
     echo json_encode([
         "points" => $user_points["points"]
     ]);
-
-    
-        
-
-}
-
-
-
-
 
 
 

@@ -1,13 +1,8 @@
 <?php
-session_start();
-require("../conn.php");
-include("../fun/alert.php");
-if(!isset($_SESSION["custid"])){
-    header("location:../index.php");
-    exit;
-}else{
-    $custid = $_SESSION["custid"];
-    $cust_name = $_SESSION["cust_name"];
+
+include("inc/check_role.php"); // تأكد من أن المستخدم مسجل الدخول وله الدور المناسب
+include("../fun/alert.php"); // تضمين ملف التنبيهات
+
 
   $user_point = $_SESSION["user_points"];
 
@@ -67,7 +62,7 @@ if(isset($_SESSION["alert"])){
   showAlert($_SESSION["alert"]["type"] , $_SESSION["alert"]["msg"]);
   unset($_SESSION['alert']);
 }
-}
+
 ?>
 
 <!DOCTYPE html>
@@ -94,19 +89,8 @@ if(isset($_SESSION["alert"])){
 
   <main class="container">
     <section class="shop-header">
-      <span class="tag"> منتجات صديقة للبيئة </span>
       <h2>متجر المكافآت</h2>
       <p>استبدل نقاطك بمنتجات مستدامة</p>
-
-      <div class="tabs">
-        <form action="" method="post">
-          <button name="all" class="tab <?= ($typeFilter == 'all') ? 'active' : '' ?>">الكل</button>
-          <button name="care" class="tab <?= ($typeFilter == 'Personal Care') ? 'active' : '' ?>">العناية الشخصية</button>
-          <button name="lifestyle" class="tab <?= ($typeFilter == 'Lifestyle') ? 'active' : '' ?>">نمط الحياة</button>
-          <button name="garden" class="tab <?= ($typeFilter == 'Garden') ? 'active' : '' ?>">الحديقة</button>
-          <button name="elec" class="tab <?= ($typeFilter == 'Electronics') ? 'active' : '' ?>">الإلكترونيات</button>
-        </form>
-      </div>
 
       <div class="balance">
         <p>رصيدك الحالي</p>

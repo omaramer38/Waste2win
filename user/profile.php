@@ -1,15 +1,7 @@
 <?php
 
-session_start();
-require("../conn.php");
-include("../fun/alert.php");
-if(!isset($_SESSION["custid"])){
-    header("location:../index.php");
-    exit;
-}else{
-    $custid = $_SESSION["custid"];
-    $cust_name = $_SESSION["cust_name"];
-
+    // get recy orders
+    include("inc/fetch_orders_limit5.php");
 
 
     // get user info
@@ -21,7 +13,8 @@ if(!isset($_SESSION["custid"])){
 
     // user name in div
 
-    $name = trim($cust_name);
+    $name = trim($_SESSION["cust_name"]);
+    $cust_name = $_SESSION["cust_name"];
 
     // تقسيم الاسم على المسافات (يدعم العربي)
     $words = preg_split('/\s+/u', $name);
@@ -39,11 +32,10 @@ if(!isset($_SESSION["custid"])){
         }
     }
 
-    // get recy orders
-    include("inc/fetch_orders_limit5.php");
+
     
 
-}
+
 ?>
 
 
@@ -87,25 +79,7 @@ if(!isset($_SESSION["custid"])){
    
 </label>
 </div>      <a href="../inc/logout.php"><button class="logout">تسجيل خروج</button></a>
-    </div>
 
-    <div class="card stats-card">
-      <h4>النقاط المتاحة</h4>
-      <p class="points-display"><?php echo htmlspecialchars($user['points']); ?></p>
-      <span class="small-text">جاهزة للاستبدال في المتجر</span>
-    </div>
-
-    <div class="card stats-card">
-      <h4>إجمالي عمليات إعادة التدوير</h4>
-      <p class="points-display"><?php 
-        // حساب إجمالي عمليات إعادة التدوير
-        $stmtTotalRecy = $pdo->prepare("SELECT COUNT(*) AS total_recy FROM recy_order WHERE custid = ?");
-        $stmtTotalRecy->execute([$custid]);
-        $totalRecy = $stmtTotalRecy->fetch(PDO::FETCH_ASSOC);
-        echo htmlspecialchars($totalRecy['total_recy']);
-      ?></p>
-      <span class="small-text">عدد طلبات إعادة التدوير التي قمت بها</span>
-  </div>
   </div>
 
   <div class="right-column">

@@ -41,7 +41,7 @@ body {
 .avatar {
   width: 70px;
   height: 70px;
-  background: #e57b51;
+  background: #9fb878;
   color: #fff;
   display: flex;
   align-items: center;
@@ -72,7 +72,7 @@ body {
 .progress {
   height: 10px;
   width: 0%;
-  background: #e57b51;
+  background: #9fb878;
   border-radius: 10px;
   transition: width 1s ease;
 }
@@ -94,7 +94,7 @@ body {
 
 .points-display {
   font-size: 2.4rem;
-  color: #e57b51;
+  color: #9fb878;
   font-weight: bold;
 }
 
@@ -136,13 +136,13 @@ ul {
 }
 
 .history-card ul li span {
-  color: #e57b51;
+  color: #9fb878;
   font-weight: 600;
 }
 
 .logout {
   display: inline-block;
-  background-color: #e57b51;
+  background-color: #9fb878;
   color: #fff;
   border: none;
   padding: 0.8rem 1.6rem;
@@ -157,7 +157,7 @@ ul {
 }
 
 .logout:hover {
-  background-color: #d86f45;
+  background-color: #9fb878;
   transform: translateY(-2px);
   box-shadow: 0 4px 10px rgba(229, 123, 81, 0.3);
 }
@@ -168,7 +168,7 @@ ul {
 }
 .mode {
   display: inline-block;
-  background-color: #524540;
+  background-color: #9fb878;
   color: #fff;
   border: none;
   padding: 0.8rem 1.6rem;

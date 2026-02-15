@@ -14,7 +14,7 @@
 .navbar .logo {
   font-size: 1.3rem;
   font-weight: 700;
-  color: #f07d5d;
+  color: #9fb878;
 }
 
 .navbar nav a {
@@ -25,5 +25,5 @@
 }
 
 .navbar nav a.active, .navbar nav a:hover {
-  color: #f07d5d;
+  color: #9fb878;
 }

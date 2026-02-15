@@ -56,7 +56,7 @@ body {
 }
 
 .tab.active, .tab:hover {
-  background: #e57b51;
+  background: #9fb878;
   color: #fff;
 }
 
@@ -78,7 +78,7 @@ body {
 
 .balance span {
   font-weight: 600;
-  color: #e57b51;
+  color: #9fb878;
 }
 
 
@@ -127,12 +127,12 @@ body {
 }
 
 .card-footer span {
-  color: #e57b51;
+  color: #9fb878;
   font-weight: 600;
 }
 
 .card-footer button {
-  background: #e57b51;
+  background: #9fb878;
   border: none;
   color: white;
   padding: 0.4rem 0.9rem;
@@ -142,7 +142,7 @@ body {
 }
 
 .card-footer button:hover {
-  background: #d66a42;
+  background: #63724a;
 }
 
 

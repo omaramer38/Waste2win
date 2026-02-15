@@ -1,14 +1,6 @@
 <?php
-session_start();
-require("../conn.php");
-include("../fun/alert.php");
-if(!isset($_SESSION["custid"])){
-    header("location:../index.php");
-    exit;
-}else{
-    $custid = $_SESSION["custid"];
-    $cust_name = $_SESSION["cust_name"];
 
+    include("inc/fetch_orders.php");
 
         // select waste categories
     $get_categories = $pdo->prepare("SELECT * FROM wastes ORDER BY  name ASC");
@@ -21,9 +13,6 @@ if(!isset($_SESSION["custid"])){
     $get_cities->execute();
     $cities = $get_cities->fetchAll();
 
-    include("inc/fetch_orders.php");
-
-}
 
 // alerts 
 
@@ -56,69 +45,12 @@ if(isset($_SESSION["alert"])){
 
 
   <main class="container" >
-    <section class="hero">
-      <button class="big-btn">ابدأ التدوير</button>
-      <h1>أعد تدوير نفاياتك</h1>
-      <p class="sub">أرسل نفاياتك القابلة لإعادة التدوير وتتبع طلباتك</p>
-
-      <div class="toggle">
-        <button class="tab active">إرسال إعادة التدوير</button>
-        <button class="tab">طلباتي</button>
-      </div>
-    </section>
-
-    <section class="orders" style="display: none;">
-      <h2>طلبات إعادة التدوير الخاصة بي</h2>
-      <p class="hint">تابع حالة طلباتك لإعادة التدوير</p>
-
-      <div class="table-wrap">
-        <table class="orders-table">
-          <thead>
-            <tr>
-              <th>رقم الطلب</th>
-              <th>التاريخ</th>
-              <th>نوع النفايات</th>
-              <th>الوزن (كجم)</th>
-              <th>الحالة</th>
-              <th>تعليق الرفض</th>
-              <th>المنتج</th>
-            </tr>
-            
-          </thead>
-
-          <tbody id="orders-body">
-          <?php if(empty($groupedOrders)){ ?>
-          <tr>
-            <td colspan="6">لا توجد طلبات لإعادة التدوير حتى الآن.</td>
-          </tr>
-          <?php } else { ?>
-          <?php foreach($groupedOrders as $order){ ?>
-          <tr class="order-row" data-status="<?php echo strtolower($order['status']); ?>">
-            <td>#<?php echo $order['recyid']; ?></td>
-            <td><?php echo date("d-m-Y", strtotime($order['date'])); ?></td>
-            <td><?php echo $order['waste_names']; ?></td>
-            <td><?php echo $order['amount']; ?></td>
-            <td><?php echo $order['status']; ?></td>
-            <td><?php echo htmlspecialchars($order['comment_reject']); ?></td>
-            <td><?php echo htmlspecialchars($order['products']); ?></td>
-          </tr>
-          <?php } } ?>
-          </tbody>
-
-
-        </table>
-      </div>
-    </section>
 
     <section class="content" >
-      <!-- Left: Form Card -->
-      <div class="left-col">
+      <div class="">
         <form id="recycle-form" class="card form-card" method="POST" action="inc/add_recycle.php">
-          <div class="form-row">
-            <label>أدخل الوزن (كجم) *</label>
-            <input id="weight" type="number" name="amount" min="0" step="0.1" value="0" required>
+          
             <input type="hidden" name="total_points" id="total_points">
-          </div>
 
           <div class="form-row">
             <label>نوع النفايات *</label>
@@ -135,23 +67,6 @@ if(isset($_SESSION["alert"])){
             </div>
           </div>
 
-          <div class="two-cols">
-            <div class="form-row">
-              <label>اختر المدينة *</label>
-              <div class="select-wrap">
-                <select id="city" name="city">
-                  <?php
-                  foreach($cities as $city){
-                    ?>
-                    <option value="<?php echo $city['cityid']; ?>"><?php echo $city['cityname']; ?></option>
-                    <?php
-                  }
-                  ?>
-                </select>
-              </div>
-            </div>
-          </div>
-
           <div class="selected-summary">
             <div class="summary-icon"></div>
             <div class="summary-text">
@@ -165,7 +80,7 @@ if(isset($_SESSION["alert"])){
               احسب النقاط
             </button>
 
-            <button id="submit-btn" type="submit" class="btn primary">
+            <button id="submit-btn" type="submit" class="btn primary" style="  background: #9fb878;">
               إرسال الطلب
             </button>
           </div>
@@ -173,32 +88,6 @@ if(isset($_SESSION["alert"])){
           <div class="calc-result" id="calc-result" aria-live="polite"></div>
         </form>
       </div>
-
-      <!-- Right: Sidebar -->
-      <aside class="right-col">
-        <div class="points-card card">
-          <h3>قيم النقاط</h3>
-
-          <?php foreach($categories as $category){  ?>
-          <div class="point-item" data-key="<?php echo strtolower($category['name']); ?>">
-            <div class="meta">
-              <div class="p-title"><?php echo strtolower($category['name']); ?></div>
-              <div class="p-sub">لكل كجم</div>
-            </div>
-            <div class="p-value"><?php echo strtolower($category['points']); ?><br/><span>نقاط</span></div>
-          </div>
-          <?php }  ?>
-        </div>
-
-        <div class="tips card">
-          <h4>نصائح لإعادة التدوير</h4>
-          <ul>
-            <li>اشطف الحاويات قبل الإرسال</li>
-            <li>افصل الإلكترونيات الهشة</li>
-            <li>ضع البطاريات بأمان</li>
-          </ul>
-        </div>
-      </aside>
     </section>
 
   </main>

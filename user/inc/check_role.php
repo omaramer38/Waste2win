@@ -38,7 +38,7 @@ $timeout = 900; // 15 دقيقة
 if (isset($_SESSION['last_activity']) && (time() - $_SESSION['last_activity']) > $timeout) {
     session_unset();
     session_destroy();
-    header("Location: /index.php?msg=session_expired");
+    header("Location: /w2w/index.php?msg=session_expired");
     exit;
 }
 

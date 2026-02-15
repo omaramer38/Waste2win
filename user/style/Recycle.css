@@ -2,7 +2,7 @@
 :root {
   --bg: #f8f5f0;
   --white: #ffffff;
-  --accent: #e46f4f;
+  --accent: #9fb878;
   --text-dark: #333;
   --text-muted: #8d8d8d;
 
@@ -16,7 +16,7 @@
   --yellow-text: #c07d00;
 
   --red-bg: #ffe7e7;
-  --red-text: #d03c3c;
+  --red-text: #9fb878;
 }
 
 
@@ -43,7 +43,6 @@ body {
 }
 
 .nav-right a {
-  margin-left: 25px;
   text-decoration: none;
   color: var(--text-dark);
   font-size: 15px;
@@ -52,7 +51,7 @@ body {
 .nav-right a.active {
   color: var(--white);
   font-weight: 600;
-  background:#e46f4f;
+  background:#9fb878;
   padding:6px 10px;
   border-radius:18px;
 }
@@ -65,7 +64,6 @@ body {
 }
 
 .big-btn {
-  background: var(--accent);
   color: #fff;
   padding: 10px 25px;
   border-radius: 22px;
@@ -74,23 +72,10 @@ body {
   font-size: 15px;
 }
 
-.hero h1 {
-  margin: 18px 0 5px;
-  font-size: 22px;
-}
 
 .sub {
   margin: 0 0 14px;
   color: var(--text-muted);
-}
-
-.toggle {
-  margin-top: 20px;
-  background: #fff;
-  display: inline-flex;
-  padding: 5px;
-  border-radius: 20px;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
 }
 
 .tab {

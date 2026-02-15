@@ -1,14 +1,7 @@
 <?php
-// طلبات إعادة التدوير
 
-
-if(!isset($_SESSION["custid"])){
-    header("location:../index.php");
-    exit;
-}else{
-    $custid = $_SESSION["custid"];
-    $cust_name = $_SESSION["cust_name"];
-
+include("inc/check_role.php"); // تأكد من أن المستخدم مسجل الدخول وله الدور المناسب
+include("../fun/alert.php"); // تضمين ملف التنبيهات
         
 //  get all recycling orders for customer
 $stmtOrders = $pdo->prepare("
@@ -84,7 +77,7 @@ foreach ($orders as $order) {
     ];
 }
 
-}
+
 // echo '<pre>';
 // print_r($groupedOrders);
 // echo '</pre>';
