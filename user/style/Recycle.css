@@ -1,195 +1,117 @@
-
-:root {
-  --bg: #f8f5f0;
-  --white: #ffffff;
-  --accent: #9fb878;
-  --text-dark: #333;
-  --text-muted: #8d8d8d;
-
-  --green-bg: #e9f8ef;
-  --green-text: #1a8f55;
-
-  --blue-bg: #e7f1ff;
-  --blue-text: #2e6ddf;
-
-  --yellow-bg: #fff4da;
-  --yellow-text: #c07d00;
-
-  --red-bg: #ffe7e7;
-  --red-text: #9fb878;
+/* ====== General ====== */
+body{
+  font-family: Arial, sans-serif;
+  background:#f8f5f0;
+  margin:0;
 }
 
-
-* {
-  box-sizing: border-box;
-  
+.container{
+  max-width:700px;
+  margin:60px auto;
+  padding:20px;
 }
 
-
-body {
-  background-color: #f9f7f3;
-  color: #333;
+.form-card{
+  background:#fff;
+  padding:35px;
+  border-radius:20px;
+  box-shadow:0 15px 40px rgba(0,0,0,0.05);
 }
 
-
-
-
-
-
-.logo {
-  font-size: 16px;
-  font-weight: 600;
-  color: var(--accent);
+/* ====== Type Block ====== */
+.type-block{
+  background:#f9f7f3;
+  padding:20px;
+  border-radius:16px;
+  margin-bottom:20px;
+  position:relative;
+  transition:0.3s;
 }
 
-.nav-right a {
-  text-decoration: none;
-  color: var(--text-dark);
-  font-size: 15px;
+.type-block:hover{
+  box-shadow:0 5px 15px rgba(0,0,0,0.05);
 }
 
-.nav-right a.active {
-  color: var(--white);
-  font-weight: 600;
+.form-row{
+  margin-bottom:15px;
+}
+
+label{
+  display:block;
+  margin-bottom:6px;
+  font-weight:600;
+  color:#444;
+}
+
+select,
+input[type="file"]{
+  width:90%;
+  padding:10px 14px;
+  border-radius:12px;
+  border:1px solid #ddd;
+  font-size:14px;
+  transition:0.3s;
+}
+
+select:focus,
+input:focus{
+  outline:none;
+  border-color:#9fb878;
+  box-shadow:0 0 0 3px rgba(159,184,120,0.2);
+}
+
+/* Remove button */
+.remove-btn{
+  position:absolute;
+  top:12px;
+  left:12px;
+  background:#ff6b6b;
+  border:none;
+  color:#fff;
+  width:26px;
+  height:26px;
+  border-radius:50%;
+  cursor:pointer;
+  font-size:16px;
+}
+
+/* Add Button */
+.add-type-btn{
+  width:100%;
+  padding:12px;
+  border-radius:14px;
+  border:2px dashed #9fb878;
+  background:transparent;
+  color:#9fb878;
+  font-weight:600;
+  cursor:pointer;
+  transition:0.3s;
+}
+
+.add-type-btn:hover{
+  background:#e9f8ef;
+}
+
+/* Submit Button */
+.submit-btn{
+  width:100%;
+  padding:14px;
+  border:none;
+  border-radius:16px;
   background:#9fb878;
-  padding:6px 10px;
-  border-radius:18px;
+  color:#fff;
+  font-size:16px;
+  cursor:pointer;
+  margin-top:20px;
+  transition:0.3s;
 }
 
-.container {
-  max-width: 1000px;
-  margin: 40px auto;
-  padding: 0 20px;
-  text-align: center;
+.submit-btn:hover{
+  background:#8aa766;
 }
 
-.big-btn {
-  color: #fff;
-  padding: 10px 25px;
-  border-radius: 22px;
-  border: none;
-  cursor: pointer;
-  font-size: 15px;
-}
-
-
-.sub {
-  margin: 0 0 14px;
-  color: var(--text-muted);
-}
-
-.tab {
-  padding: 9px 25px;
-  border: none;
-  background: transparent;
-  cursor: pointer;
-  border-radius: 18px;
-  font-size: 14px;
-}
-
-.tab.active {
-  background: #eee7e1;
-}
-
-.orders {
-  margin-top: 35px;
-  text-align: left;
-}
-
-.orders h2 {
-  margin-bottom: 5px;
-  font-size: 20px;
-}
-
-.hint {
-  color: var(--text-muted);
-  margin-top: 0;
-  margin-bottom: 15px;
-}
-
-.filters {
-  display: flex;
-  gap: 10px;
-  margin-bottom: 12px;
-}
-
-.pill {
-  padding: 8px 14px;
-  background: #fff;
-  border-radius: 20px;
-  border: none;
-  cursor: pointer;
-  font-size: 14px;
-}
-
-.pill.active {
-  background: var(--accent);
-  color: #fff;
-}
-
-.table-wrap {
-  background: #fff;
-  border-radius: 12px;
-  padding: 10px 0;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.04);
-  overflow-x: auto;
-}
-
-.orders-table {
-  width: 100%;
-  border-collapse: collapse;
-  font-size: 15px;
-}
-
-.orders-table th {
-  padding: 15px 20px;
-  color: #666;
-  text-align: left;
-  font-size: 14px;
-}
-
-.orders-table td {
-  padding: 16px 20px;
-  border-top: 1px solid #f1efea;
-}
-
-.status {
-  padding: 7px 12px;
-  font-size: 13px;
-  border-radius: 14px;
-  display: inline-block;
-}
-
-.status.completed {
-  background: var(--green-bg);
-  color: var(--green-text);
-}
-
-.status.approved {
-  background: var(--blue-bg);
-  color: var(--blue-text);
-}
-
-.status.pending {
-  background: var(--yellow-bg);
-  color: var(--yellow-text);
-}
-
-.status.rejected {
-  background: var(--red-bg);
-  color: var(--red-text);
-}
-
-.details {
-  color: var(--text-muted);
-  font-size: 13px;
-}
-
-@media (max-width: 700px) {
-  .nav-right {
-    display: none;
-  }
-  .container {
-    padding: 0 12px;
-  }
+.preview-img{
+  margin-top:10px;
+  max-width:100px;
+  border-radius:10px;
 }

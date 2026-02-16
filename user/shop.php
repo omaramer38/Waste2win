@@ -70,7 +70,7 @@ if(isset($_SESSION["alert"])){
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>متجر نقاط RecyPoints</title>
+  <title>متجر نقاط </title>
   <link rel="stylesheet" href="style/shop.css" />
   <link rel="stylesheet" href="style/navbar.css">
 </head>
@@ -88,15 +88,17 @@ if(isset($_SESSION["alert"])){
 <?php include("inc/navbar.php"); ?>
 
   <main class="container">
-    <section class="shop-header">
-      <h2>متجر المكافآت</h2>
-      <p>استبدل نقاطك بمنتجات مستدامة</p>
+  <section class="shop-header">
+  <h2>متجر المكافآت</h2>
 
-      <div class="balance">
-        <p>رصيدك الحالي</p>
-        <span id="balance"><?php echo htmlspecialchars($user_point) ?> نقطة</span>
-      </div>
-    </section>
+  <div class="balance">
+    <p>رصيدك الحالي</p>
+    <span id="balance">
+      <?php echo htmlspecialchars($_SESSION["points"]) ?> نقطة
+    </span>
+  </div>
+</section>
+
 
     <section class="products">
       <?php foreach($products as $product){ ?>

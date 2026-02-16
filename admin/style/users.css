@@ -1,0 +1,199 @@
+:root {
+  --خلفية-رئيسية: #faf9f8;
+  --خلفية-بيضاء: #ffffff;
+  --نص-رئيسي: #1f2937;
+  --نص-غامق: #374151;
+  --نص-فاتح: #6b7280;
+  --نص-افتح: #9ca3af;
+  --حدود-فاتحة: #f0f0f0;
+  --حدود-خفيفة: #f3f4f6;
+  --ظل: rgba(0, 0, 0, 0.06);
+
+  --برتقالي-اساسي: #f97316;
+  --ازرق: #3b82f6;
+  --اخضر: #22c55e;
+  --احمر: #ef4444;
+}
+
+body {
+  margin: 0;
+  font-family: "Tajawal", sans-serif;
+  background: var(--خلفية-رئيسية);
+  color: var(--نص-رئيسي);
+  display: flex;
+}
+
+
+
+.dashboard {
+  display: flex;
+  width: 100%;
+}
+
+.main-content {
+  flex: 1;
+  padding: 2rem;
+  overflow-x: auto;
+}
+
+
+header {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 2rem;
+}
+
+header h1 {
+  margin-bottom: 1rem;
+  font-size: 1.8rem;
+}
+
+.actions {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+}
+
+.actions input {
+  flex: 1;
+  padding: 0.5rem 1rem;
+  border-radius: 5px;
+  border: 1px solid var(--border);
+}
+
+.actions button {
+  background: var(--نص-رئيسي);
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.actions button:hover {
+  background: #e56b44;
+}
+
+
+.users-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--bg);
+  border-radius: 10px;
+  display: block;
+  overflow-x: auto;
+  box-shadow: 0 2px 5px var(--shadow);
+}
+
+.users-table th,
+.users-table td {
+  padding: 0.8rem 1rem;
+  text-align: left;
+  white-space: nowrap;
+  border-bottom: 1px solid var(--border);
+}
+
+.users-table th {
+  background: var(--secondary-bg);
+  font-weight: 600;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+}
+
+.user-icon {
+  width: 35px;
+  height: 35px;
+  background: var(--highlight-bg);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.status {
+  padding: 0.3rem 0.6rem;
+  border-radius: 12px;
+  font-weight: 500;
+  font-size: 0.85rem;
+  color: #fff;
+  text-transform: capitalize;
+  display: inline-block;
+}
+
+.status.active {
+  background: #4caf50;
+}
+
+.status.banned {
+  background: #f44336;
+}
+
+.actions-buttons button {
+  padding: 0.3rem 0.7rem;
+  margin-right: 0.3rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 0.85rem;
+}
+
+.actions-buttons .edit {
+  background: #9fb878;
+  color: #fff;
+}
+
+.actions-buttons .ban {
+  background: #f44336;
+  color: #fff;
+}
+
+.actions-buttons .unban {
+  background: #4caf50;
+  color: #fff;
+}
+
+.actions-buttons .delete {
+  background: #777;
+  color: #fff;
+}
+
+@media(max-width: 1200px) {
+  .users-table {
+    display: block;
+    overflow-x: auto;
+  }
+}
+
+
+
+#toggle-btn {
+  position: fixed;
+  top: 20px;
+  right: 220px; 
+  background: transparent;
+  color: var(--text-main);
+  border: 1px solid var(--border-light);
+  padding: 10px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.4s;
+  z-index: 1000;
+  font-size: 22px; 
+  line-height: 1;
+}
+
+#toggle-btn:hover {
+  background: #f9fafb;
+}
+

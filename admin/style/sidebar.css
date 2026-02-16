@@ -1,0 +1,78 @@
+.sidebar {
+  width: 250px;
+  background: var(--خلفية-بيضاء);
+  border-right: 1px solid var(--حدود-فاتحة);
+  padding: 25px 20px;
+  display: flex;
+  flex-direction: column;
+  overflow: auto;
+}
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 40px;
+}
+
+.logo img {
+  width: 38px;
+  display: none;
+}
+
+.logo h2 {
+  margin: 0;
+  font-size: 18px;
+  color: var(--نص-رئيسي);
+}
+
+.logo p {
+  font-size: 12px;
+  color: var(--نص-افتح);
+  margin: 0;
+}
+
+.menu {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  flex: 1;
+}
+
+.menu li {
+  padding: 12px 15px;
+  border-radius: 8px;
+  margin-bottom: 8px;
+  cursor: pointer;
+  color: var(--نص-غامق);
+  transition: 0.3s;
+}
+
+.menu li.active,
+.menu li:hover {
+  background: #9fb878;
+  color: #fff;
+}
+.menu a{
+  text-decoration: none;
+}
+
+
+.sidebar.collapsed {
+  width: 0;
+  overflow: hidden;
+  padding: 3;
+}
+
+.sidebar.collapsed .menu li {
+  display: none;
+}
+
+.sidebar.collapsed .logo {
+  display: none;
+}
+
+#toggle-btn.moved {
+  right: 0.5px;
+}
+
+

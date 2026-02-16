@@ -10,13 +10,14 @@ if (isset($_COOKIE["email"]) && isset($_COOKIE["password"])) {
     $has_pass = md5($password);
 
     // تحقق من العملاء أولاً
-    $check_user = $pdo->prepare("SELECT custid, cust_name FROM customers WHERE email = ? AND password = ?");
+    $check_user = $pdo->prepare("SELECT custid, cust_name , points FROM customers WHERE email = ? AND password = ?");
     $check_user->execute([$email, $has_pass]);
     $user = $check_user->fetch();
 
     if ($user) {
         $_SESSION["custid"] = $user["custid"];
         $_SESSION["cust_name"] = $user["cust_name"];
+        $_SESSION["points"] = $user["points"];
         $_SESSION["role"] = "customer"; // تحديد الدور كعميل
         header("location:user/home.php");
         exit;
@@ -35,9 +36,9 @@ if (isset($_COOKIE["email"]) && isset($_COOKIE["password"])) {
         if ($user["role"] == 1) {
             header("location:admin/home.php");
             exit;
-        } elseif ($user["role"] == 2) {
-            header("location:worker/home.php");
-            exit;
+        }else{
+          header("location:/w2w/index.php?msg=unauthorized");
+          exit;
         }
     }
 }
@@ -52,7 +53,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
 
             // تحقق من العملاء
             $check_user = $pdo->prepare("
-                SELECT custid, cust_name
+                SELECT custid, cust_name , points
                 FROM customers
                 WHERE email = ? AND password = ?
             ");
@@ -62,6 +63,7 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
             if ($user) {
                 $_SESSION["custid"] = $user["custid"];
                 $_SESSION["cust_name"] = $user["cust_name"];
+                $_SESSION["points"] = $user["points"];
 
                 // ✅ نحفظ الكوكيز لمدة سنة
                 setcookie("email", $email, time() + (365*24*60*60), "/");
@@ -89,10 +91,10 @@ if ($_SERVER['REQUEST_METHOD'] == "POST") {
                     setcookie("password", $password, time() + (365*24*60*60), "/");
 
                     if ($user["role"] == 1) {
-                        header("location:admin/home.php");
+                        header("location:/w2w/admin/users.php");
                         exit;
-                    } elseif ($user["role"] == 2) {
-                        header("location:worker/home.php");
+                    }else{
+                        header("location:/w2w/index.php?msg=unauthorized");
                         exit;
                     }
                 } else {

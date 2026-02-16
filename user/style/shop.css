@@ -13,29 +13,12 @@ body {
   padding: 0 1rem;
 }
 
-
-.shop-header {
-  text-align: center;
-  position: relative;
-}
-
 .tag {
   background: #eaf5ec;
   color: #4b9460;
   padding: 0.3rem 0.8rem;
   border-radius: 20px;
   font-size: 0.9rem;
-}
-
-.shop-header h2 {
-  margin-top: 0.5rem;
-  font-size: 1.8rem;
-  color: #333;
-}
-
-.shop-header p {
-  color: #777;
-  margin-bottom: 1rem;
 }
 
 .tabs {
@@ -59,28 +42,6 @@ body {
   background: #9fb878;
   color: #fff;
 }
-
-.balance {
-  position: absolute;
-  top: 0;
-  right: 0;
-  background: #fff;
-  padding: 0.8rem 1.2rem;
-  border-radius: 12px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-  text-align: right;
-}
-
-.balance p {
-  font-size: 0.8rem;
-  color: #666;
-}
-
-.balance span {
-  font-weight: 600;
-  color: #9fb878;
-}
-
 
 .products {
   display: grid;
@@ -146,3 +107,38 @@ body {
 }
 
 
+.shop-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.shop-header h2 {
+  font-size: 1.8rem;
+  margin: 0;
+}
+
+.balance {
+  background: #ffffff;
+  padding: 12px 18px;
+  border-radius: 14px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  text-align: center;
+  min-width: 180px;
+}
+
+.balance p {
+  font-size: 0.8rem;
+  color: #777;
+  margin: 0;
+}
+
+.balance span {
+  display: block;
+  margin-top: 4px;
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: #9fb878;
+}

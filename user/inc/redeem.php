@@ -1,7 +1,7 @@
 <?php
 
-include("inc/check_role.php"); // تأكد من أن المستخدم مسجل الدخول وله الدور المناسب
-include("../fun/alert.php"); // تضمين ملف التنبيهات
+include("../inc/check_role.php"); // تأكد من أن المستخدم مسجل الدخول وله الدور المناسب
+include("../../fun/alert.php"); // تضمين ملف التنبيهات
     $user_points = $_SESSION["user_points"];
 
     if(isset($_POST["proid"]) && isset($_POST["points_needed"])){

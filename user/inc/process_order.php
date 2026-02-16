@@ -1,7 +1,7 @@
 <?php
 
-include("inc/check_role.php"); // تأكد من أن المستخدم مسجل الدخول وله الدور المناسب
-include("../fun/alert.php"); // تضمين ملف التنبيهات
+include("../inc/check_role.php"); // تأكد من أن المستخدم مسجل الدخول وله الدور المناسب
+include("../../fun/alert.php"); // تضمين ملف التنبيهات
 
     // select user points
     $select_user_points = $pdo->prepare("SELECT points FROM customers WHERE custid = ?");
@@ -84,14 +84,13 @@ include("../fun/alert.php"); // تضمين ملف التنبيهات
             // 2) إدخال المنتجات في جدول order_info
             // ======================
             $stmtItem = $pdo->prepare("
-                INSERT INTO order_info (recyid, proid, points_needed)
-                VALUES (?, ?, ?)
+                INSERT INTO order_info (recyid, points)
+                VALUES (?, ?)
             ");
 
             foreach ($products as $item) {
                 $stmtItem->execute([
                     $recyid,
-                    $item['proid'],
                     $item['points']
                 ]);
             }

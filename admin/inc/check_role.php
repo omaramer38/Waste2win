@@ -36,7 +36,7 @@ $timeout = 900; // 15 دقيقة
 if (isset($_SESSION['last_activity']) && (time() - $_SESSION['last_activity']) > $timeout) {
     session_unset();
     session_destroy();
-    header("Location: /index.php?msg=session_expired");
+    header("Location: /w2w/index.php?msg=session_expired");
     exit;
 }
 
@@ -45,38 +45,37 @@ $_SESSION['last_activity'] = time();
 // --------------------
 // 4️⃣ تحديد الدور لكل نوع مستخدم
 // --------------------
-if (isset($_SESSION['custid'])) {
+if (isset($_SESSION['userid'])) {
     $_SESSION['role'] = "customer"; // العملاء العاديين
-} elseif (isset($_SESSION['custid'])) {
+} elseif (isset($_SESSION['userid'])) {
     try {
-        $stmt = $pdo->prepare("SELECT role,cust_name FROM users WHERE custid = ?");
-        $stmt->execute([$_SESSION['custid']]);
+        $stmt = $pdo->prepare("SELECT role,user_name FROM users WHERE userid = ?");
+        $stmt->execute([$_SESSION['userid']]);
         $user = $stmt->fetch(PDO::FETCH_ASSOC);
-        $_SESSION["cust_name"] = $user["cust_name"];
+        $_SESSION["user_name"] = $user["user_name"];
 
         if ($user) {
             if ($user["role"] == 1) $_SESSION['role'] = "admin";
-            else if ($user["role"] == 2) $_SESSION['role'] = "worker";
-            else if ($_SESSION['role'] == 3) $_SESSION['role'] = "customer"; // أي دور غير متوقع
+            else if ($user["role"] == 3) $_SESSION['role'] = "customer"; // أي دور غير متوقع
         } else {
             // المستخدم غير موجود
             session_unset();
             session_destroy();
-            header("Location: /index.php?msg=unauthorized");
+            header("Location: /w2w/index.php?msg=unauthorized");
             exit;
         }
     } catch (PDOException $e) {
         error_log("Role check DB error: " . $e->getMessage());
         session_unset();
         session_destroy();
-        header("Location: /index.php?msg=db_error");
+        header("Location: /w2w/index.php?msg=db_error");
         exit;
     }
 } else {
     // لا يوجد أي مستخدم مسجل
     session_unset();
     session_destroy();
-    header("Location: /index.php?msg=login_required");
+    header("Location: /w2w/index.php?msg=login_required");
     exit;
 }
 
@@ -85,7 +84,7 @@ if (isset($_SESSION['custid'])) {
 // --------------------
 function require_role($requiredRole) {
     if (!isset($_SESSION['role']) || $_SESSION['role'] !== $requiredRole) {
-        header("Location: /index.php?msg=unauthorized");
+        header("Location: /w2w/index.php?msg=unauthorized");
         exit;
     }
 }

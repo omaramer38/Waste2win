@@ -1,0 +1,256 @@
+:root {
+  --bg: #fff;
+  --text: #333;
+  --primary: #f07d5d;
+  --secondary-bg: #f8f8f8;
+  --light-text: #555;
+  --border: #eee;
+  --shadow: rgba(0,0,0,0.1);
+  --active-green: #4caf50;
+  --inactive-gray: #999;
+    --خلفية-رئيسية: #faf9f8;
+  --خلفية-بيضاء: #ffffff;
+  --نص-رئيسي: #1f2937;
+  --نص-غامق: #374151;
+  --نص-فاتح: #6b7280;
+  --نص-افتح: #9ca3af;
+  --حدود-فاتحة: #f0f0f0;
+  --حدود-خفيفة: #f3f4f6;
+  --ظل: rgba(0, 0, 0, 0.06);
+
+  --برتقالي-اساسي: #f97316;
+  --ازرق: #3b82f6;
+  --اخضر: #22c55e;
+  --احمر: #ef4444;
+  
+}
+
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
+}
+
+body {
+  display: flex;
+  background: var(--secondary-bg);
+  color: var(--text);
+  min-height: 100vh;
+}
+
+.dashboard {
+  display: flex;
+  width: 100%;
+}
+
+/* Logout button */
+.logout {
+  margin-top: 3rem;
+  background: none;
+  border: none;
+  color: #f44336;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+/* Main content */
+.main-content {
+  flex: 1;
+  padding: 2rem;
+}
+
+header h1 {
+  font-size: 1.6rem;
+  margin-bottom: 0.5rem;
+}
+
+header p {
+  color: var(--light-text);
+  margin-bottom: 1.5rem;
+}
+
+/* Search bar */
+.search-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.search-bar input {
+  flex: 1;
+  padding: 0.6rem 1rem;
+  border-radius: 6px;
+  border: 1px solid var(--border);
+  outline: none;
+}
+
+.filters {
+  display: flex;
+  gap: 0.5rem;
+  margin-left:400px;
+}
+
+.filters .btn {
+  border: none;
+  border-radius: 6px;
+  padding: 0.5rem 0.8rem;
+  font-size: 0.85rem;
+  cursor: pointer;
+  color: #fff;
+}
+.btninfo {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.filters .total {
+  background: var(--primary);
+}
+
+.filters .active {
+  background: var(--active-green);
+}
+
+.filters .inactive {
+  background: var(--inactive-gray);
+}
+
+.add-btn {
+  background: #9fb878;
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.6rem 1rem;
+  cursor: pointer;
+  font-weight: 500;
+  margin-left: auto;
+}
+
+/* Table */
+.salesmen-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--bg);
+  border-radius: 10px;
+  box-shadow: 0 2px 5px var(--shadow);
+  overflow: hidden;
+}
+
+.salesmen-table th,
+.salesmen-table td {
+  padding: 0.8rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--border);
+  direction: rtl;
+  text-align: right;
+}
+
+.salesmen-table th {
+  background: var(--secondary-bg);
+  font-weight: 600;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.btn.search{
+  background: var(--light-text);
+  color: #fff;
+  border: none;
+  border-radius: 6px;
+  padding: 0.6rem 1rem;
+  cursor: pointer;
+  font-weight: 500;
+  margin-left: auto;
+
+}
+
+
+/* Status */
+.status {
+  padding: 0.3rem 0.6rem;
+  border-radius: 10px;
+  color: #fff;
+  font-size: 0.8rem;
+  text-transform: capitalize;
+}
+
+.status.active {
+  background: var(--active-green);
+}
+
+.status.inactive {
+  background: #999;
+}
+
+.status.holiday {
+  background: #ff9800;
+}
+
+/* Table actions */
+.actions button {
+  border: none;
+  border-radius: 6px;
+  padding: 0.3rem 0.7rem;
+  font-size: 0.8rem;
+  cursor: pointer;
+  transition: 0.3s;
+  margin-right: 0.5rem;
+  
+}
+
+.actions .view {
+  background: transparent;
+  color: #9fb878;
+}
+
+.actions .edit {
+  background: #9fb878;
+  color: #fff;
+}
+
+.actions .delete {
+  background: #f44336;
+  color: #fff;
+}
+
+.actions button:hover {
+  opacity: 0.85;
+}
+
+/* Responsive */
+@media (max-width: 1000px) {
+  .search-bar {
+    flex-direction: column;
+    align-items: stretch;
+  }
+}
+
+
+
+#toggle-btn {
+  position: fixed;
+  top: 20px;
+  right: 220px; 
+  background: transparent;
+  color: var(--text-main);
+  border: 1px solid var(--border-light);
+  padding: 10px 14px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 0.4s;
+  z-index: 1000;
+  font-size: 22px; 
+  line-height: 1;
+}
+
+#toggle-btn:hover {
+  background: #f9fafb;
+}

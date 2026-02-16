@@ -1,6 +1,6 @@
 <?php
 $host = 'localhost';          // اسم المضيف 
-$dbname = 'recypoints';           // اسم قاعدة البيانات
+$dbname = 'w2w';           // اسم قاعدة البيانات
 $username = 'root';           // اسم المستخدم
 $password = '';               // كلمة المرور 
 

@@ -105,11 +105,11 @@ include("../fun/alert.php"); // تضمين ملف التنبيهات
   border-radius:10px;
   margin-bottom:10px;}
   .msg.user{
-    background:#f07d5d;
-    color:white;
+    background:#ccc;
+    color:#222;
     margin-left:auto;}
   .msg.bot{
-    background:#eee;
+    background:#9fb878;
     color:#222;
     margin-right:auto;}
   .typing{
@@ -182,7 +182,7 @@ include("../fun/alert.php"); // تضمين ملف التنبيهات
   </form>
 
   
-<div id="answer"></div>
+<div id="answer" style="background-color:#9fb878"></div>
 
 </div>
 </div> 
